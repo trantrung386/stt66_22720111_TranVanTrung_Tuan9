@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <style>
+        * {
+            margin: 0px auto;
+            padding: 0px;
+        }
+        
+        .wrapper {
+            width: 789px;
+            height: 500px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="">
+            <input type="text" id="txtus" placeholder="User name">
+            <br>
+            <input type="password" id="txtmk" placeholder="Password">
+            <br>
+            <input type="radio" name="gt" value="Nam">Nam
+            <br>
+            <input type="radio" name="gt" value="Nu">Nữ
+            <br>
+            <input type="checkbox" value="Trung Nguyen">Trung Nguyên
+            <br>
+            <input type="checkbox" value="Mekong"> Mekong
+            <br>
+            <input type="checkbox" value="New blue"> New Blue
+            <br>
+            <input type="checkbox" value="Tra sua"> Trà sữa
+            <br>
+            <input type="button" value="Nhập" onclick="Nhap()">
+        </form>
+    </div>
+
+</body>
+<script>
+    function Nhap() {
+        var tendn, mk;
+        tendn = document.getElementById("txtus").value;
+        mk = document.getElementById("txtmk").value;
+
+        var cafe = new Array();
+        var taphop = document.querySelectorAll("input[type='checkbox']");
+        taphop.forEach(function(chk) {
+            if (chk.checked)
+                cafe.push(chk.value);
+        });
+        var gtinh;
+        var taphopgt = document.querySelectorAll("input[type='radio']");
+        taphopgt.forEach(function(ra) {
+            if (ra.checked)
+                gtinh = ra.value;
+        });
+
+        var w = window.open("infor.html");
+        localStorage.setItem("us", tendn);
+        localStorage.setItem("pd", mk);
+        localStorage.setItem("cf", cafe);
+        localStorage.setItem("gt", gtinh);
+    }
+</script>
+
+</html>
